@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcycle Products</title>
+    <link rel="stylesheet" href="upcycle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .message{
+            color: white;
+            border: none;
+            background-color: chocolate;
+            cursor: pointer;
+        
+        }
+        .message:hover{
+        background-color: green;
+        }
+        
+    /* Wishlist Heart Icon Styles */
+    .wishlist-icon {
+        font-size: 24px;
+        color: #ddd;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        transition: color 0.3s;
+            /* Add a thin black border directly to the heart shape */
+    -webkit-text-stroke: 1px black; /* Adds a thin black outline */
+}
+    .wishlist-icon.added {
+        color: #e74c3c;
+    }
+
+  /* Toast Message Styles */
+  .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 17px;
+            opacity: 0;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    </style>
+    <script src="navbar.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    
+    <header>
+        <div class="logo">
+            <img src="short logo.png" alt="Barter Exchange Logo">
+            
+        </div>
+        <nav class="navbar"> <!-- Add class="navbar" here -->
+            <ul>
+              <li><a href="indexnew.html">Home</a></li>
+              <li><a href="aboutus.html">About Us</a></li>
+              <li><a href="contactus.html">Contact</a></li>
+              <li><a href="cart.html">Cart</a></li>
+            </ul>
+          </nav>
+          
+      <!-- Search Bar and Login -->
+      <div class="header-actions">
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." id="search" autocomplete="off">
+            <ul id="suggestion-box"></ul>
+            <button type="button">Search</button>
+        </div>
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+
+
+    </header>
+           
+   <script src="upcycle-search.js"></script>
+    
+   <section class="recycle-page">
+    <h2>Upcycled Products</h2>
+    <div class="recycle-grid">
+        <div class="item" data-id="1" data-name="Bottle Upcycle" data-required="Plastic bottles">
+            <img src="plastic.jpg" alt="Bottle Upcycle">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(1)"></i>
+            <p><strong>Bottle Upcycle</strong><br>Required: Plastic bottles.<br>
+                Artist Name: Mira Singh.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="2" data-name="Denim Hanger" data-required="Denim">
+            <img src="jeans2.jpg" alt="Denim Hanger">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(2)"></i>
+            <p><strong>Denim Hanger</strong><br>Required: Denim.<br>
+                Artist Name: Sadiya Sadaf.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="3" data-name="Upcycled Denim" data-required="Denim">
+            <img src="jeansnew.jpg" alt="Upcycled Denim">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(3)"></i>
+            <p><strong>Upcycled Denim</strong><br>Required: Denim.<br>
+                Artist Name: Sadiya Sadaf.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="4" data-name="Tyre Planter" data-required="Tyre">
+            <img src="tyre.jpg" alt="Tyre Planter">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(4)"></i>
+            <p><strong>Tyre Planter</strong><br>Required: Tyre.<br>
+                Artist Name: Mohan Lal.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="5" data-name="Pen Holder" data-required="Cold Drink Can">
+            <img src="CANE1.jpg" alt="Pen Holder">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(5)"></i>
+            <p><strong>Pen Holder</strong><br>Required: Cold Drink Can.<br>
+                Artist Name: Riyaz Ahmed Khan.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="6" data-name="Tyre Clock" data-required="Cycle Tyre">
+            <img src="tyre1.jpg" alt="Tyre Clock">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(6)"></i>
+            <p><strong>Tyre Clock</strong><br>Required: Cycle Tyre.<br>
+                Artist Name: Kamlesh Soni.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="7" data-name="Can Table" data-required="Cold Drink Can">
+            <img src="cane.jpg" alt="Can Table">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(7)"></i>
+            <p><strong>Can Table</strong><br>Required: Cold Drink Can.<br>
+                Artist Name: Aditi Kapoor.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="8" data-name="Tissue Box" data-required="Kids Car">
+            <img src="toycar.jpg" alt="Tissue Box">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(8)"></i>
+            <p><strong>Tissue Box</strong><br>Required: Kids Car.<br>
+                Artist Name: Anam Khan.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="9" data-name="Upcycled Plastic" data-required="Denim">
+            <img src="apron.jpg" alt="Upcycled Plastic">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(9)"></i>
+            <p><strong>Upcycled Plastic</strong><br>Required: Denim.<br>
+                Artist Name: Sadiya Sadaf.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="10" data-name="Denim Hanger" data-required="Denim">
+            <img src="bottle2.jpg" alt="Denim Hanger">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(10)"></i>
+            <p><strong>Denim Hanger</strong><br>Required: Denim.<br>
+                Artist Name: Sadiya Sadaf.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="11" data-name="Upcycled Bottles" data-required="Denim">
+            <img src="flower vase.jpg" alt="Upcycled Bottles">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(11)"></i>
+            <p><strong>Upcycled Bottles</strong><br>Required: Denim.<br>
+                Artist Name: Sadiya Sadaf.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+
+        <div class="item" data-id="12" data-name="Denim Planter" data-required="Denim">
+            <img src="planter hanger.jpg" alt="Denim Planter">
+            <i class="fa fa-heart wishlist-icon" onclick="toggleWishlist(12)"></i>
+            <p><strong>Denim Planter</strong><br>Required: Denim.<br>
+                Artist Name: Sadiya Sadaf.
+                <button class="message"><a href="dm.html">Direct Message</a></button>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- No Products Found Message and Explore Section -->
+<p class="no-results">No products found.</p>
+<div class="explore-section">
+  <p>Explore other products below </p>
+  <button id="browse-again">Continue Exploring</button>
+</div>
+</section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 R3Trade. All rights reserved.</p>
+        <p><a href="terms-of-service.html">Privacy Policy & Term and Services</a>
+    </footer>
+   
+
+     <!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+<script>
+    // Wishlist Management
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    
+    function toggleWishlist(productId) {
+    const item = document.querySelector(`.item[data-id="${productId}"]`);
+    const name = item.getAttribute('data-name');
+    const price = item.getAttribute('data-price');
+    const image = item.getAttribute('data-image');
+    
+    const product = { id: productId, name, price, image };
+    const icon = item.querySelector('.wishlist-icon');
+    const index = wishlist.findIndex(item => item.id === productId);
+
+    if (index > -1) {
+        wishlist.splice(index, 1);
+        icon.classList.remove('added');
+        showToast(`${name} removed from wishlist!`);
+    } else {
+        wishlist.push(product);
+        icon.classList.add('added');
+        showToast(`${name} added to wishlist!`, true);
+    }
+
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+}
+
+// Toast Notification Function
+function showToast(message, showWishlistLink = false) {
+    const toast = document.getElementById("toast");
+    toast.innerHTML = message;
+
+    if (showWishlistLink) {
+        toast.innerHTML += ` <a href="wishlist.html" style="color: #4CAF50; text-decoration: underline;">Click here to go to wishlist</a>`;
+    }
+
+    toast.className = "toast show";
+    setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+    }, 3000);
+}
+// 📌 Recently Viewed Products Logic (Clickable Image & Name)
+const viewedItems = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+        
+        document.querySelectorAll('.item img, .item p strong').forEach(element => {
+            element.style.cursor = 'pointer'; // Make the image and name appear clickable
+            element.addEventListener('click', () => {
+                const parent = element.closest('.item'); // Get the parent product element
+
+                const product = {
+                    id: parent.getAttribute('data-id'),
+                    name: parent.getAttribute('data-name'),
+                    price: parent.getAttribute('data-price'),
+                    image: parent.getAttribute('data-image'),
+                    link: window.location.pathname + '#' + parent.getAttribute('data-id') 
+                };
+
+                // Avoid duplication in recently viewed products
+                const exists = viewedItems.find(p => p.id === product.id);
+                if (!exists) {
+                    viewedItems.unshift(product);
+                    if (viewedItems.length > 5) viewedItems.pop(); // Limit to 5 items
+                    localStorage.setItem('recentlyViewed', JSON.stringify(viewedItems));
+                }
+                console.log(`Added ${product.name} to Recently Viewed`);
+            });
+        });
+</script>
+ 
+</body>
+</html>

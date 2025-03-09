@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - R3 Trade</title>
+    <link rel="stylesheet" href="common.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const wishlistContainer = document.getElementById('wishlist-container');
+            
+            // Fetch wishlist items from localStorage
+            const wishlistItems = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+            function displayWishlist() {
+                wishlistContainer.innerHTML = '';
+
+                if (wishlistItems.length === 0) {
+                    wishlistContainer.innerHTML = '<p>Your wishlist is empty.</p>';
+                    return;
+                }
+
+                wishlistItems.forEach((item, index) => {
+                    wishlistContainer.innerHTML += `
+                        <div class="wishlist-item">
+                            <img src="${item.image}" alt="${item.name}" class="wishlist-image">
+                            <div class="wishlist-details">
+                                <h3>${item.name}</h3>
+                                <p>Price: ₹${item.price}</p>
+                                <button onclick="moveToCart(${index})" class="save-btn">Move to Cart</button>
+                                <button onclick="removeFromWishlist(${index})" class="danger-btn">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // Remove item from wishlist
+            window.removeFromWishlist = function(index) {
+                if (confirm("Are you sure you want to remove this item from your wishlist?")) {
+                    wishlistItems.splice(index, 1);
+                    localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
+                    displayWishlist();
+                }
+            };
+
+            // Move item to cart (Simulation)
+            window.moveToCart = function(index) {
+                alert(`${wishlistItems[index].name} has been moved to your cart.`);
+                wishlistItems.splice(index, 1);
+                localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
+                displayWishlist();
+            };
+
+            displayWishlist();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="short logo.pnj" alt="R3 Trade Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="indexnew.html">Home</a></li>
+                <li><a href="account.html">Account</a></li>
+                <li><a href="wishlist.html" class="active">Wishlist</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="wishlist-section">
+            <h1>Your Wishlist</h1>
+            <div id="wishlist-container" class="wishlist-container">
+                <!-- Wishlist items will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 R3Trade. All rights reserved.</p>
+        <p><a href="terms-of-service.html">Privacy Policy & Term Of Services</a>
+            
+    </footer>
+</body>
+</html>
